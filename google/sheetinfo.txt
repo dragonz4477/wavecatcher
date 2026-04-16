@@ -1,0 +1,10 @@
+# paste spreadsheet id on the line below (appears in the url between /d/ and /edit)
+1gq-VNy7uqQbdfd0o_76XWYRByLjQvpOCn4Km-wi8nBc
+# paste name of rating leaderboard sheet below
+Rating Leaderboard
+# paste player name column below
+D
+# paste rating column below
+F
+# paste range of rows where players appear (colon-seperated, ex: 5:33) (this is important)
+5:37
