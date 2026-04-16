@@ -1,6 +1,6 @@
 from google import readsheet
 from google import writesheet
-import tachi
+from tachi import readtachi
 import os
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -19,8 +19,11 @@ def auth():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
+            with open("google\client-secret-location.txt", "r") as file:
+                location = file.readline().rstrip('\n')
+            file.close()
             flow = InstalledAppFlow.from_client_secrets_file(
-                'C:/Users/Morgan/Documents/google_client_secret.json', SCOPES
+                location, SCOPES
             )
             creds = flow.run_local_server(port=0)
     
@@ -33,4 +36,5 @@ def auth():
 if __name__ == '__main__':
     service = auth()
     player_dict = readsheet.read(service)
-    writesheet.write(service)
+    #writesheet.write(service)
+    readtachi.read(player_dict)
